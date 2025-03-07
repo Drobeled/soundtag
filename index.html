@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Одинокая картинка</title>
+    <title>Случайная картинка</title>
     <style>
         body {
             margin: 0;
@@ -35,13 +35,21 @@
         Ваш браузер не поддерживает аудио.
     </audio>
 
-    <img src="image.jpeg" alt="Картинка">
+    <img id="randomImage" alt="Картинка">
     <button id="playButton"></button>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             let audio = document.getElementById("myAudio");
             let playButton = document.getElementById("playButton");
+            let image = document.getElementById("randomImage");
+
+            // Массив с названиями картинок
+            let images = ["image1.jpeg", "image2.jpeg", "image3.jpeg"];
+            
+            // Выбор случайной картинки
+            let randomIndex = Math.floor(Math.random() * images.length);
+            image.src = images[randomIndex];
 
             // Попытка автозапуска звука
             let playPromise = audio.play();
